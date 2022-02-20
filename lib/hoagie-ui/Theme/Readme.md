@@ -1,27 +1,19 @@
-Standard Nav
+Theme Demonstration
 ```js
-<Nav name="test" />
-```
-
-Nav with User Data
-```js
+import Nav from '../Nav';
 const user = {
     isLoading: false,
     user: {
         email: "hoagie@princeton.edu",
-        name: "Tammy Tiger",
-        nickname: "hoagie"
+        name: "Tammy Tiger"
     }
 };
-<Nav name="test" user={user} />
-```
-
-Nav with Tabs + WIP Disclaimer
-```js
 const tabs = [
     { title: 'Buy', href: '/buy' },
     { title: 'Sell', href: '/sell' },
     { title: 'My Purchases', href: '/profile' }
 ];
-<Nav name="test" tabs={tabs} beta={true}/>
+<Theme palette="orange">
+    <Nav name="test" user={user} tabs={tabs} />
+</Theme>
 ```
