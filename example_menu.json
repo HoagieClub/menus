@@ -1,0 +1,52 @@
+{
+  "menus": [
+    {
+      "id": "460251",
+      "name": "Italian Tortellini Vegetable Soup",
+      "description": "Allergens: Milk, Wheat",
+      "link": "http://menus.princeton.edu/dining/_Foodpro/online-menu/label.asp?RecNumAndPort=460251",
+      "icons": [
+        "vegetarian"
+      ]
+    },
+    {
+      "id": "459978",
+      "name": "Roma House Beef Vegetable Soup",
+      "description": "Allergens: None",
+      "link": "http://menus.princeton.edu/dining/_Foodpro/online-menu/label.asp?RecNumAndPort=459978"
+    },
+    {
+      "id": "071082",
+      "name": "Meatballs in Tomato Sauce",
+      "description": "Allergens: Milk, Eggs, Wheat, Soybeans",
+      "link": "http://menus.princeton.edu/dining/_Foodpro/online-menu/label.asp?RecNumAndPort=071082"
+    },
+    {
+      "id": "141273",
+      "name": "Eggplant Rollatini",
+      "description": "Allergens: Milk, Eggs, Wheat, Soybeans",
+      "link": "http://menus.princeton.edu/dining/_Foodpro/online-menu/label.asp?RecNumAndPort=141273",
+      "icons": [
+        "vegetarian"
+      ]
+    },
+    {
+      "id": "121424",
+      "name": "Linguini",
+      "description": "Allergens: Wheat",
+      "link": "http://menus.princeton.edu/dining/_Foodpro/online-menu/label.asp?RecNumAndPort=121424",
+      "icons": [
+        "vegan"
+      ]
+    },
+    {
+      "id": "460068",
+      "name": "Sautéed Green Beans",
+      "description": "Allergens: None",
+      "link": "http://menus.princeton.edu/dining/_Foodpro/online-menu/label.asp?RecNumAndPort=460068",
+      "icons": [
+        "vegan"
+      ]
+    }
+  ]
+}

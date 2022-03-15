@@ -3,6 +3,7 @@ import { majorScale, Pane } from 'evergreen-ui';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import MenuCard from '../../components/MenuCard';
 import router from "next/router";
+import DateWidget from "../../components/DateWidget";
 
 export default withPageAuthRequired(() => {
 
@@ -29,6 +30,11 @@ export default withPageAuthRequired(() => {
 
   return (
     <> 
+    <Pane display="flex" flexWrap="wrap" justifyContent="center" 
+    paddingX={majorScale(3)}>
+      <DateWidget />
+    </Pane>
+
     <Pane display="flex" flexWrap="wrap" justifyContent="center" 
     marginY={majorScale(4)}
     paddingX={majorScale(3)}>
