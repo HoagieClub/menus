@@ -59,22 +59,49 @@ class DateWidget extends Component<{}, MyState> {
             let newDate = new Date(oldDate.getTime() - 20*60*60*1000);
             if (oldDate < new Date()) 
                 return;
-            this.setState({
-                currentMealIndex: 2,
-                month: newDate.getMonth() + 1,
-                date: newDate.getDate(),
-                dayIndex: newDate.getDay(),
-                year: newDate.getFullYear()
-            });
+            if (days[this.state.dayIndex] == 'Sunday') {
+                this.setState({
+                    currentMealIndex: 1,
+                    month: newDate.getMonth() + 1,
+                    date: newDate.getDate(),
+                    dayIndex: newDate.getDay(),
+                    year: newDate.getFullYear()
+                });
+            }
+            else {
+                this.setState({
+                    currentMealIndex: 2,
+                    month: newDate.getMonth() + 1,
+                    date: newDate.getDate(),
+                    dayIndex: newDate.getDay(),
+                    year: newDate.getFullYear()
+                });
+            }
         }
     }
 
     moveMealRight = () => {
         let index = this.state.currentMealIndex;
         if (index < 2) {
-            this.setState({
-                currentMealIndex: index + 1
-            });
+            if (index == 1 && (days[this.state.dayIndex] == 'Saturday' || days[this.state.dayIndex] == 'Sunday')) {
+                let oldDate = new Date(this.state.year, this.state.month - 1, this.state.date);
+                let newDate = new Date(oldDate.getTime() + 24*60*60*1000);
+                if (oldDate > new Date(new Date().getTime() + 24*60*60*1000 * 5)) 
+                    return;
+                this.setState({
+                    currentMealIndex: 0,
+                    month: newDate.getMonth() + 1,
+                    date: newDate.getDate(),
+                    dayIndex: newDate.getDay(),
+                    year: newDate.getFullYear()
+                });
+            }
+            else {
+                this.setState({
+                    currentMealIndex: index + 1
+                });
+            }
+            
         }
         else {
             let oldDate = new Date(this.state.year, this.state.month - 1, this.state.date);
@@ -102,9 +129,14 @@ class DateWidget extends Component<{}, MyState> {
             height={88}
             display="flex">
                 <Pane flex={1} alignItems="center" display="flex">
-                    <Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
-                    {meals[this.state.currentMealIndex]}
-                    </Heading>
+                {(days[this.state.dayIndex] != 'Saturday' && days[this.state.dayIndex] != 'Sunday') && (<Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
+                        {meals[this.state.currentMealIndex]}
+                    </Heading>)
+                }
+                {(days[this.state.dayIndex] == 'Saturday' || days[this.state.dayIndex] == 'Sunday') && (<Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
+                        {weekendMeals[this.state.currentMealIndex]}
+                    </Heading>)
+                }
                 </Pane>
                 <Pane marginRight={majorScale(2)} marginTop={majorScale(2)} >
                     <Text fontSize={20} marginRight={majorScale(5)}>
