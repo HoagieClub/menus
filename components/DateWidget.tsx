@@ -59,7 +59,7 @@ class DateWidget extends Component<{}, MyState> {
             let newDate = new Date(oldDate.getTime() - 20*60*60*1000);
             if (oldDate < new Date()) 
                 return;
-            if (days[this.state.dayIndex] == 'Sunday') {
+            if (days[this.state.dayIndex] == 'Sunday' || days[this.state.dayIndex] == 'Monday') {
                 this.setState({
                     currentMealIndex: 1,
                     month: newDate.getMonth() + 1,
@@ -157,9 +157,14 @@ class DateWidget extends Component<{}, MyState> {
             height={88}
             display="flex">
                 <Pane flex={1} alignItems="center" display="flex">
-                    <Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
-                    {meals[this.state.currentMealIndex]}
-                    </Heading>
+                    {(days[this.state.dayIndex] != 'Saturday' && days[this.state.dayIndex] != 'Sunday') && (<Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
+                            {meals[this.state.currentMealIndex]}
+                        </Heading>)
+                    }
+                    {(days[this.state.dayIndex] == 'Saturday' || days[this.state.dayIndex] == 'Sunday') && (<Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
+                            {weekendMeals[this.state.currentMealIndex]}
+                        </Heading>)
+                    }
                 </Pane>
                 <Pane marginRight={majorScale(2)} marginTop={majorScale(2)} >
                     <Text fontSize={20} marginRight={majorScale(5)}>
@@ -180,9 +185,14 @@ class DateWidget extends Component<{}, MyState> {
             height={88}
             display="flex">
                 <Pane flex={1} alignItems="center" display="flex">
-                    <Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
-                    {meals[this.state.currentMealIndex]}
-                    </Heading>
+                    {(days[this.state.dayIndex] != 'Saturday' && days[this.state.dayIndex] != 'Sunday') && (<Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
+                            {meals[this.state.currentMealIndex]}
+                        </Heading>)
+                    }
+                    {(days[this.state.dayIndex] == 'Saturday' || days[this.state.dayIndex] == 'Sunday') && (<Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
+                            {weekendMeals[this.state.currentMealIndex]}
+                        </Heading>)
+                    }
                 </Pane>
                 <Pane marginRight={majorScale(2)} marginTop={majorScale(2)} >
                     <Text fontSize={20} marginRight={majorScale(5)}>
@@ -201,9 +211,14 @@ class DateWidget extends Component<{}, MyState> {
             height={88}
             display="flex">
                 <Pane flex={1} alignItems="center" display="flex">
-                    <Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
-                    {meals[this.state.currentMealIndex]}
-                    </Heading>
+                    {(days[this.state.dayIndex] != 'Saturday' && days[this.state.dayIndex] != 'Sunday') && (<Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
+                            {meals[this.state.currentMealIndex]}
+                        </Heading>)
+                    }
+                    {(days[this.state.dayIndex] == 'Saturday' || days[this.state.dayIndex] == 'Sunday') && (<Heading is="h1" fontSize={35} marginLeft={majorScale(2)}>
+                            {weekendMeals[this.state.currentMealIndex]}
+                        </Heading>)
+                    }
                 </Pane>
                 <Pane marginRight={majorScale(2)} marginTop={majorScale(2)} >
                     <Text fontSize={20} marginRight={majorScale(2)}>
