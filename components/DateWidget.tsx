@@ -21,9 +21,16 @@ class DateWidget extends Component<{}, MyState> {
         const today = new Date();
         const currentHour = today.getHours();
         let currentMealIndex = 0;
-        if (currentHour <= 11) currentMealIndex = 0;
-        else if (currentHour <= 2) currentMealIndex = 1;
-        else currentMealIndex = 2;
+        let dayIndex = today.getDay();
+        if ((days[dayIndex] != 'Saturday' && days[dayIndex] != 'Sunday')) {
+            if (currentHour <= 11) currentMealIndex = 0;
+            else if (currentHour <= 2) currentMealIndex = 1;
+            else currentMealIndex = 2;
+        }
+        else {
+            if (currentHour <= 2) currentMealIndex = 0;
+            else currentMealIndex = 1;
+        }
         this.state = {
             windowWidth: window.innerWidth,
             currentMealIndex: currentMealIndex,
@@ -32,6 +39,7 @@ class DateWidget extends Component<{}, MyState> {
             dayIndex: today.getDay(),
             year: today.getFullYear()
         }
+        
     }
 
     handleResize = () => {
