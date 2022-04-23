@@ -3,6 +3,7 @@ import { majorScale, Pane } from 'evergreen-ui';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import router from 'next/router';
 import MenuCard from '../../components/MenuCard';
+import DateWidget from '../../components/DateWidget';
 
 export default withPageAuthRequired(() => {
     useEffect(() => {
@@ -31,15 +32,24 @@ export default withPageAuthRequired(() => {
                 display="flex"
                 flexWrap="wrap"
                 justifyContent="center"
-                marginY={majorScale(4)}
+                paddingX={majorScale(3)}
+                marginY={majorScale(1)}
+            >
+                <DateWidget />
+            </Pane>
+            <Pane
+                display="flex"
+                flexWrap="wrap"
+                justifyContent="center"
+                marginY={majorScale(2)}
                 paddingX={majorScale(3)}
             >
-                <MenuCard college="Mathey" food={food} size={2} />
-                <MenuCard college="Whitman" food={food} />
-                <MenuCard college="First" food={food} />
-                <MenuCard college="Butler" food={food} />
-                <MenuCard college="Forbes" food={food} />
-                <MenuCard college="Graduate College" food={food} />
+                <MenuCard college="Mathey" food={food} size={4} />
+                <MenuCard college="Whitman" food={food} size={4} />
+                <MenuCard college="First" food={food} size={4} />
+                <MenuCard college="Butler" food={food} size={4} />
+                <MenuCard college="Forbes" food={food} size={4} />
+                <MenuCard college="Graduate College" food={food} size={4} />
             </Pane>
         </>
     );
