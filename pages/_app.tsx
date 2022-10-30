@@ -14,7 +14,7 @@ function Content({ Component, pageProps }) {
     return (
         <Theme palette="blue">
             <Layout>
-                <Nav name="menus" tabs={tabs} /* user={user} */ />
+                <Nav name="menus" tabs={tabs} />
                 <Component {...pageProps} />
                 <Footer />
             </Layout>
