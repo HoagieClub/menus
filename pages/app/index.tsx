@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { majorScale, Pane } from 'evergreen-ui';
-import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import router from 'next/router';
 import MenuCard from '../../components/MenuCard';
 import DateWidget from '../../components/DateWidget';
 
-export default withPageAuthRequired(() => {
+const AppPage = () => {
     useEffect(() => {
         // eslint-disable-next-line no-restricted-globals
         const queryParams = new URLSearchParams(location.search)
@@ -53,4 +52,5 @@ export default withPageAuthRequired(() => {
             </Pane>
         </>
     );
-});
+};
+export default AppPage

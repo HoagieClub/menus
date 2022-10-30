@@ -1,5 +1,4 @@
 import React from 'react';
-import { UserProvider, useUser } from '@auth0/nextjs-auth0';
 import Head from 'next/head';
 import Layout from '../lib/hoagie-ui/Layout';
 import Nav from '../lib/hoagie-ui/Nav';
@@ -12,12 +11,10 @@ function Content({ Component, pageProps }) {
     // {title: "See Menus", href: "/app"}
     ];
 
-    const user = useUser();
-
     return (
         <Theme palette="blue">
             <Layout>
-                <Nav name="menus" tabs={tabs} user={user} />
+                <Nav name="menus" tabs={tabs} /* user={user} */ />
                 <Component {...pageProps} />
                 <Footer />
             </Layout>
@@ -27,11 +24,11 @@ function Content({ Component, pageProps }) {
 
 export default function App({ Component, pageProps }) {
     return (
-        <UserProvider>
+        <>
             <Head>
                 <title>Menus by Hoagie</title>
             </Head>
             <Content Component={Component} pageProps={pageProps} />
-        </UserProvider>
+        </>
     );
 }

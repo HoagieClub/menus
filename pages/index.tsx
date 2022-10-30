@@ -1,35 +1,26 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { useUser } from '@auth0/nextjs-auth0'
 import {
-    Pane, majorScale, minorScale, Spinner, Button, WarningSignIcon,
+    Pane, majorScale, minorScale, Button, WarningSignIcon,
 } from 'evergreen-ui'
 import Link from 'next/link'
-import AuthButton from '../lib/hoagie-ui/AuthButton'
 
 export default function Index() {
-    const { user, error, isLoading } = useUser();
-    let Profile;
-    if (isLoading) Profile = <Spinner />;
-    else if (error) Profile = <div>{error.message}</div>;
-    else if (user) {
-        Profile = (
-            <Pane>
-                <Link href="/app">
-                    <Button
-                        height={56}
-                        width={majorScale(35)}
-                        appearance="primary"
-                        marginBottom={20}
-                        iconBefore={WarningSignIcon}
-                    >
-                        Access the App
-                    </Button>
-                </Link><br />
-                <AuthButton variant="logout" />
-            </Pane>
-        );
-    } else Profile = <AuthButton />
+    const AccessUI = (
+        <Pane>
+            <Link href="/app">
+                <Button
+                    height={56}
+                    width={majorScale(35)}
+                    appearance="primary"
+                    marginBottom={20}
+                    iconBefore={WarningSignIcon}
+                >
+                    Access the App
+                </Button>
+            </Link><br />
+        </Pane>
+    );
 
     const router = useRouter()
     useEffect(() => {
@@ -75,7 +66,7 @@ export default function Index() {
                         alignItems="center"
                         marginTop="30px"
                     >
-                        { Profile }
+                        { AccessUI }
                         <Link href="https://hoagie.io">
                             <Button
                                 height={56}

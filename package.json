@@ -9,7 +9,6 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^1.4.2",
     "evergreen-ui": "^6.1.0",
     "next": "^10.0.0",
     "react": "17.0.1",
